@@ -1,0 +1,16 @@
+name: CI Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Cypress Run
+        uses: cypress-io/github-action@v6
+        with: 
+          browser: chrome
