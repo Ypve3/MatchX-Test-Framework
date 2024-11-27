@@ -22,7 +22,7 @@ When("Select CSV File TO Upload", () => {
 });
  
 Then("Table customers-10000 Created Successfully!", () => {
-  cy.wait(3000);
+  cy.wait(4000);
   cy.get(".ant-message-notice-content")
     .should("be.visible")
     .should("contain", "Table Duplicates1 Created Successfully!");
@@ -45,7 +45,7 @@ Then("Table People-100 Created Successfully!", () => {
 
 When("Select CSV File TO Upload - User_info",() => {
 
-  cy.get(".ant-upload-text").attachFile("User_info.csv", {
+  cy.get(".ant-upload-text").attachFile("User.csv", {
     subjectType: "drag-n-drop",
   });
 
@@ -55,7 +55,7 @@ Then("Table User_info Created Successfully!", () => {
   cy.wait(4000);
   cy.get('.ant-message-notice-content')
     .should("be.visible")
-    .should("contain", "Table User_info Created Successfully!");
+    .should("contain", "Table User Created Successfully!");
 });
 
 

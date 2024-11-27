@@ -19,7 +19,7 @@ When("the user clicks on the Quality button",() => {
 When("the user clicks on the dataset from Quality table.",() => {
    
    
-    cy.xpath("//td[text()='User_info']").click()
+    cy.xpath("//td[text()='User']").click()
     cy.wait(8000)
 
 })
@@ -69,7 +69,7 @@ When("User should see all Duplicate highlighted values",() => {
 
 When("user starts click on remove button",() => {
    cy.xpath("//span[text()='Remove & Save']").click()
-   cy.wait(10000)
+   cy.wait(9000)
 });
 
 Then("Duplicate values should be removed", () => {
