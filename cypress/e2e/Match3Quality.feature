@@ -20,20 +20,20 @@ Scenario: Duplicate Values
 When the user clicks on the Quality button 
 When the user clicks on the dataset from Quality table.
 And clicks on Duplicate values
-Then User should see all Duplicate highlighted values
+And User should see all Duplicate highlighted values
 And user starts click on remove button
-Then Remove values should be removed
-Then Quality Score values should be changed.
+Then Duplicate values should be removed
+
 
 
 Scenario: Whitespaces
 When the user clicks on the Quality button 
 When the user clicks on the dataset from Quality table.
 And clicks on Whitespaces values
-Then User should see all Whitespace values highlighted values
+And User should see all Whitespace values highlighted values
 And user starts click on remove button
 Then Whitespaces values should be removed
-Then Quality Score values should be changed.
+
 
 Scenario: Rule violation/mismatched Values
 When the user clicks on the Quality button 

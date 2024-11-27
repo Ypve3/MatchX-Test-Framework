@@ -5,13 +5,13 @@ import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
 
 When("Recieved File Uploaded Message",() => {
   
-    cy.get(".ant-upload-text").attachFile("Org1.csv", {
+    cy.get(".ant-upload-text").attachFile("organizations-1000.csv", {
         subjectType: "drag-n-drop",
       });
         cy.wait(3000);
         cy.get(".ant-message-notice-content")
           .should("be.visible")
-          .should("contain", "Table Org1 Created Successfully!")
+          .should("contain", "Table organizations-1000 Created Successfully!")
         
 })
 
@@ -22,7 +22,7 @@ When("Click on Data Profiling Option",() => {
 
 
 Then("Recently Uploaded File Should be present in Profiling Section",() =>{
-    cy.get("tr:contains('Org1')").should('exist');  
+    cy.get("tr:contains('organizations-1000')").should('exist');  
 })
 
 

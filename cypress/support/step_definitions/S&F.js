@@ -68,14 +68,14 @@ Then("File name should appear according to inputs", () => {
 
 When("User is on ingestion Page", () => {
 
-  cy.xpath("//span[text()='Data Ingestion']").click();
+  cy.xpath("//span[text()='Data Ingestion']").first().click();
   cy.get('a[href="/ingestion"]').click();
-
+  cy.wait(2000)
 })
 
 When("Type file name in ingestion page", () => {
   
- cy.get('.ant-input').type('Dup{enter}')
+  cy.get('.ant-input-suffix').type('Dup{enter}')
 
 })
 

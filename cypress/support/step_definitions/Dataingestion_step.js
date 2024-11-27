@@ -28,6 +28,37 @@ Then("Table customers-10000 Created Successfully!", () => {
     .should("contain", "Table Duplicates1 Created Successfully!");
 });
 
+When("Select CSV File TO Upload - People 100",() => {
+
+  cy.get(".ant-upload-text").attachFile("people-100.csv", {
+    subjectType: "drag-n-drop",
+  });
+
+})
+
+Then("Table People-100 Created Successfully!", () => {
+  cy.wait(2000);
+  cy.get('.ant-message-notice-content')
+    .should("be.visible")
+    .should("contain", "Table people-100 Created Successfully!");
+});
+
+When("Select CSV File TO Upload - User_info",() => {
+
+  cy.get(".ant-upload-text").attachFile("User_info.csv", {
+    subjectType: "drag-n-drop",
+  });
+
+})
+
+Then("Table User_info Created Successfully!", () => {
+  cy.wait(4000);
+  cy.get('.ant-message-notice-content')
+    .should("be.visible")
+    .should("contain", "Table User_info Created Successfully!");
+});
+
+
 Then("The table customers-10000 already exists in the database! Message Should be recieved", () => {
   cy.wait(2000);
   cy.get('.ant-message-notice-content')
@@ -39,7 +70,7 @@ When("Select xml File TO Upload", () => {
   cy.get(".ant-upload-text").attachFile("e.xml", {
     subjectType: "drag-n-drop",
   });
-  cy.wait(1000)
+  cy.wait(500)
 });
 
 Then("Error Message Should be Displayed - Unsupported file type. Please upload .csv or .xml files.", () => {
@@ -57,7 +88,7 @@ When("Select CSV More than 25MB File TO Upload", () => {
 });
 
 Then("Error Message Should be Displayed - File size exceeds the limit of 5MB.", () => {
-  cy.wait(1000)
+  cy.wait(500)
   cy.get('.ant-message-notice-content')
     .should("be.visible")
     .should("contain", "File size exceeds the 25MB limit.");
@@ -67,7 +98,7 @@ When("Select pdf File", () => {
   cy.get(".ant-upload-text").attachFile("p.pdf", {
     subjectType: "drag-n-drop",
   });
-  cy.wait(1000)
+  cy.wait(500)
 });
 
 When("Select JPG File", () => {

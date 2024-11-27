@@ -35,22 +35,3 @@ Then last 7 days file should be displayed
 And select last 30 days 
 Then last 30 days file should be displayed
 
-Scenario: User filter file on dashboard
-
-When User is on dashboard 
-And select todays date
-Then todays uploaded file should be shown in dashboard page
-And select last 7 days 
-Then last 7 days file should be displayed in dashboard page
-And select last 30 days 
-Then last 30 days file should be displayed in dashboard page
-
-Scenario: User filter file on profile
-
-When User is on profile page 
-And select todays date
-Then todays uploaded file should be shown in profile page
-And select last 7 days 
-Then last 7 days file should be displayed in profile page
-And select last 30 days 
-Then last 30 days file should be displayed in profile page

@@ -12,6 +12,17 @@ Scenario: Upload CSV File
     And Select CSV File TO Upload
     Then Table customers-10000 Created Successfully!
 
+Scenario: Upload CSV File People -100
+    When I Click on Upload file Button
+    And Select CSV File TO Upload - People 100
+    Then Table People-100 Created Successfully!
+
+Scenario: Upload CSV File User_info
+    When I Click on Upload file Button
+    And Select CSV File TO Upload - User_info
+    Then Table User_info Created Successfully!
+
+
 Scenario: Upload CSV File - Same as you uploaded in Scenario 1
     When I Click on Upload file Button
     And Select CSV File TO Upload

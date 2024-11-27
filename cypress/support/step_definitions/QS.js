@@ -9,6 +9,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return true;
 });
 
+
 When("the user clicks on the Quality button",() => {
 
     cy.get('a[href="/quality"]').click();
@@ -18,7 +19,7 @@ When("the user clicks on the Quality button",() => {
 When("the user clicks on the dataset from Quality table.",() => {
    
    
-    cy.xpath("//td[@class='ant-table-cell' and text()='User_Info']").click()
+    cy.xpath("//td[text()='User_info']").click()
     cy.wait(8000)
 
 })
@@ -59,7 +60,7 @@ When("clicks on Duplicate values",() => {
     cy.xpath("//span[contains(text(),'Duplicates')]").click()
 })
 
-Then("User should see all Duplicate highlighted values",() => {
+When("User should see all Duplicate highlighted values",() => {
 
     cy.wait(7000)
     cy.screenshot("DuplicatesHighlightes")
@@ -71,7 +72,7 @@ When("user starts click on remove button",() => {
    cy.wait(10000)
 });
 
-Then("Remove values should be removed", () => {
+Then("Duplicate values should be removed", () => {
     cy.get('.ant-message-custom-content > :nth-child(2)')
       .should('exist')
       .and('be.visible')
@@ -98,15 +99,13 @@ When("clicks on Whitespaces values",() => {
     cy.xpath("//span[contains(text(),'Whitespaces')]").click()
 })
 
-Then("User should see all Whitespace values highlighted values",() => {
+When("User should see all Whitespace values highlighted values",() => {
 
     cy.wait(10000)
     cy.screenshot("WTHighlights")
 })
 
 Then("Whitespaces values should be removed",() => {
-
-    Then("Remove values should be removed", () => {
         const getCurrentDate = () => {
           const now = new Date();
           const formattedDate = now.toISOString().replace(/[:.]/g, "-"); // Format date to avoid invalid characters in file name
@@ -120,7 +119,7 @@ Then("Whitespaces values should be removed",() => {
           .then(() => {
             cy.log("Assertion passed: Values removed and message displayed successfully.");
           });
-      });
+    
       
       // Global error handler for screenshots
       Cypress.on('fail', (error, runnable) => {

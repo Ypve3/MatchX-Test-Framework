@@ -330,7 +330,7 @@ Then("the User should see data without Trailing space in data view table",() => 
   cy.viewport(1600, 1080)
 })
 
-When("the user selects a file for data operations - user_info",() => {
+When("the user selects a file for data operations- User_info",() => {
   cy.xpath("//td[text()='User_Info']").click()
 })
 

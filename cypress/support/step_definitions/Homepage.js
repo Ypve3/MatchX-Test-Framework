@@ -19,7 +19,7 @@ Given("I am on Application's Homepage", () => {
 });
 
 When("I enter login details",() => {
- cy.get('#login_email').type('yash.pardeshi@ve3.global')
+ cy.get('#login_email').type('yash.pardeshi@gmail.com')
  cy.get('#login_password').type("Rekha@1306")
 })
 
