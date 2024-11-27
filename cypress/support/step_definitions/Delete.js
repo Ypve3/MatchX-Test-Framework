@@ -36,10 +36,8 @@ When("click on file delete button",() => {
     cy.wait(3000)
     cy.xpath("(//span[@aria-label='delete'])[1]").click()
     cy.get('.ant-popconfirm-buttons > .ant-btn-primary').click()
-    cy.wait(3000)
-    cy.xpath("(//span[@aria-label='delete'])[1]").click()
-    cy.get('.ant-popconfirm-buttons > .ant-btn-primary').click()
-    cy.wait(3000)
+    cy.wait(2000)
+    
 
     cy.get('.ant-message-custom-content > :nth-child(2)').should("be.visible").should("contain","Table deleted successfully")
 })

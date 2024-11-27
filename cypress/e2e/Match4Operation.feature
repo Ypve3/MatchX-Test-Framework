@@ -66,26 +66,6 @@ And the user clicks on 'Remove'
 Then the User should see data without commas in data view table
 And the user clicks on Save.
 
-Scenario: User performs data Split operations by selecting commas checkboxes and removing specific data issues
 
-When the user clicks on the Quality button 
-And the user selects a file for data operations- User_info
-And the user clicks on the 'Data Operations' tab
-And User click on split
-And User Select checkboxs like space, dots
-And User clicks on split
-Then User can see the split values 
-And the user clicks on Save.
-
-
-Scenario: User performs data Merge operations by selecting commas checkboxes and removing specific data issues
-
-When the user clicks on the Quality button 
-And the user selects a file for data operations- User_info
-And the user clicks on the 'Data Operations' tab
-And User click on Merge
-And User Select column from dropdown
-And User clicks on Merge
-And the user clicks on Save.
 
 
