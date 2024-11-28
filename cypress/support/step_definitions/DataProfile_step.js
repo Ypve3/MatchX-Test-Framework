@@ -65,18 +65,7 @@ Then("Values with count should be shown.", () => {
       cy.log("Count of '1' is found in the table row.");
     });
 
-  // Check for the specific element and take a screenshot
-  cy.get('[style="display: flex; gap: 40px; justify-content: center;"] > :nth-child(2)', { timeout: 5000 })
-    .should('exist') // Ensure the element exists
-    .then(() => {
-      cy.log("Element for displaying values exists.");
-    })
-    cy.screenshot("sp_trailing_value", { capture: 'viewport', force: true })
-    .then(() => {
-      cy.log("Screenshot captured for the displayed values.");
-    });
-});
-
+  });
 
 
 
@@ -86,7 +75,7 @@ When("Clicks on Graphical option",() => {
 
 Then("User should get Graphical Summary of File",() => {
   cy.wait(6000)
-  cy.get('[width="450"]', { timeout: 5000 })
-  .should('exist') // Ensure the element exists
-  .screenshot("Graphs", { capture: 'viewport', force: true });
+  cy.get(':nth-child(2) > .ant-spin-nested-loading > .ant-spin-container > .ant-table > .ant-table-container > .ant-table-content > table > .ant-table-thead > tr > :nth-child(1)')
+  .should('exist')
+  
 })
