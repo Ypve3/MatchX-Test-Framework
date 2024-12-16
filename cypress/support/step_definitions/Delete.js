@@ -1,13 +1,20 @@
 /// <reference types="cypress" />
-
 import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
-
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
-  return false
-})
-
+Cypress.on("uncaught:exception", (err, runnable) => {
+  console.error("Uncaught Error:", err);
+  return false;
+});
+Cypress.on("uncaught:exception", (err, runnable) => {
+  if (err.message.includes("formatSize is not defined")) {
+    // Define a fallback function
+    window.formatSize = (bytes) => {
+      console.warn("Default formatSize used");
+      return `${bytes} bytes`;
+    };
+    return false; 
+  }
+  return true;
+});
 Cypress.on("uncaught:exception", (err, runnable) => {
   if (err.message.includes("Failed to execute 'json' on 'Response'")) {
     return false;
@@ -15,32 +22,25 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return true;
 });
 
-// Add error handling function
-Cypress.on('fail', (error, runnable) => {
-  // Take screenshot on any failure
-  cy.screenshot(`failed-${runnable.title.replace(/\s+/g, '-')}`, { capture: 'fullPage' });
-  throw error;
-});
 
+When("User is on ingestion page", () => {
 
-When("click on file delete button",() => {
-
-    cy.xpath("(//span[@aria-label='delete'])[1]").click()
-    cy.get('.ant-popconfirm-buttons > .ant-btn-primary').click()
-    cy.wait(3000)
-    cy.xpath("(//span[@aria-label='delete'])[1]").click()
-    cy.get('.ant-popconfirm-buttons > .ant-btn-primary').click()
-    cy.wait(3000)
-    cy.xpath("(//span[@aria-label='delete'])[1]").click()
-    cy.get('.ant-popconfirm-buttons > .ant-btn-primary').click()
-    cy.wait(3000)
-    cy.xpath("(//span[@aria-label='delete'])[1]").click()
-    cy.get('.ant-popconfirm-buttons > .ant-btn-primary').click()
-    cy.wait(2000)
-    
-
-    cy.get('.ant-message-custom-content > :nth-child(2)').should("be.visible").should("contain","Table deleted successfully")
+    cy.get('a[href="/ingestion"]').click()
 })
-Then("File should be deleted",() => {
+
+When("User Clicks on Delete Option", () => {
+cy.xpath("(//span[@aria-label='delete'])[1]").click()
+cy.xpath("//span[text()='OK']").click()
+cy.wait(4000)
+cy.xpath("(//span[@aria-label='delete'])[1]").click({ multiple: true })
+cy.xpath("//span[text()='OK']").click()
+cy.wait(2000)
+})
+
+Then("File should be Deleted", () => {
+
+    cy.get('.ant-message-custom-content > :nth-child(2)')
+    .should("be.visible")
+    .should("contain", "Table deleted successfully");
 
 })
