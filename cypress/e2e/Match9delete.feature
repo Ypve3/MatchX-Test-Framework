@@ -1,6 +1,5 @@
 Feature: Data Delete
 
-
 Background:
 Given I am on Application's Homepage
 When I enter login details
