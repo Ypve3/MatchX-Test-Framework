@@ -1,7 +1,9 @@
 name: CI Tests
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - test-workflow
 
 jobs:
   test:
@@ -13,4 +15,5 @@ jobs:
       - name: Cypress Run
         uses: cypress-io/github-action@v6
         with: 
+          working-directory: test-framework
           browser: chrome
