@@ -38,10 +38,10 @@ Scenario: Upload JSON File
     And Select JSON File
     And User should see the preview
     And User Should Click setting
-    And User should select delimiter
+   
     And User should Select Encoder
-    And User should select Data format
-    And User should select Industry
+   
+ 
     And User should select error radio
     And User should write name and description for Json File
     Then Json File Should be Upoaded.

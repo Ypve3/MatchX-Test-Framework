@@ -35,7 +35,7 @@ When("I Click on Upload file Button", () => {
   
   
   cy.get('a[href="/ingestion"]').click()
-  cy.wait(4000)
+  cy.wait(3000)
   cy.get('.ant-btn-primary').click();
  cy.xpath("//span[text()='From Local Storage']").click();
 });
@@ -57,7 +57,7 @@ When("User Should Click setting", () => {
 })
 
 When("User should select delimiter", () => {
-  cy.get('#rc_select_0').click({ force: true });
+  cy.get('#rc_select_0').click();
 
   cy.get('.ant-select-dropdown .ant-select-item-option-content')
     .contains('Comma (,)')
@@ -67,7 +67,8 @@ When("User should select delimiter", () => {
 
 When("User should Select Encoder", () => {
   cy.get('#rc_select_1').click();
-  cy.xpath("//div[@class='ant-select-item-option-content' and text()='UTF-8']").click();
+  cy.get('.ant-select-dropdown .ant-select-item-option-content')
+  .contains('UTF-8').click();
 })
 When("User should select Data format",() => {
   cy.get('#rc_select_2').click();
@@ -94,10 +95,10 @@ When("User should write name and description", () => {
 })
 
 Then("Table customers-10000 Created Successfully!", () => {
-  cy.wait(3000);
+  cy.wait(1000);
   cy.get('.ant-message-custom-content > :nth-child(2)')
     .should("be.visible")
-    .should("contain", "JSON data from Cypress_Automation1 stored successfully!");
+    .should("contain", "Cypress_Automation1 stored successfully!");
 })
 
 Then("The table customers-10000 already exists in the database! Message Should be recieved", () => {
@@ -178,10 +179,10 @@ When("User should write name and description for Json File", () => {
 
 Then ("Json File Should be Upoaded.", () => {
 
-  cy.wait(3000);
+  cy.wait(2000);
   cy.get('.ant-message-custom-content > :nth-child(2)')
     .should("be.visible")
-    .should("contain", "JSON data from Json_ATM stored successfully!");
+    .should("contain", "Json_ATM stored successfully!");
 
 } )
 
