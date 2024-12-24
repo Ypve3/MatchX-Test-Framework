@@ -30,14 +30,13 @@ const formatSize = (bytes) => {
 };
 
 When("I Click on Upload file Button", () => {
-  cy.wait(2000)
   cy.viewport(1024, 768)
   
   
   cy.get('a[href="/ingestion"]').click()
   cy.wait(3000)
   cy.get('.ant-btn-primary').click();
- cy.xpath("//span[text()='From Local Storage']").click();
+ 
 });
 
 When("Select CSV File TO Upload", () => {
@@ -88,24 +87,25 @@ When("User should select error radio", () => {
 When("User should write name and description", () => {
   cy.get('.ant-message-custom-content > :nth-child(2)').should("be.visible")
   .should("contain", "Dataset preview fetched successfully!");
+  cy.wait(2000)
   cy.xpath("//span[text()='Next']").click();
-  cy.get(':nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-input').type("Cypress_Automation1");
+  cy.get(':nth-child(1) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-input').type("Automation1");
   cy.get(':nth-child(2) > .ant-row > .ant-form-item-control > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-input').type("Testing");
   cy.get('.ant-btn-primary > span').click();
 })
 
 Then("Table customers-10000 Created Successfully!", () => {
-  cy.wait(1000);
+  
   cy.get('.ant-message-custom-content > :nth-child(2)')
     .should("be.visible")
-    .should("contain", "Cypress_Automation1 stored successfully!");
+    .should("contain", "Automation1 stored successfully!");
 })
 
 Then("The table customers-10000 already exists in the database! Message Should be recieved", () => {
   cy.wait(2000);
-  cy.get('.ant-message-custom-content > :nth-child(2)')
+  cy.get('[data-row-key="1"] > :nth-child(2)')
     .should("be.visible")
-    .should("contain", "Dataset Cypress_Automation1 already exists for user Yash.");
+    .should("contain", "Dataset Automation1 already exists for user Yash.");
 });
 
 When("Select xml File TO Upload", () => {
