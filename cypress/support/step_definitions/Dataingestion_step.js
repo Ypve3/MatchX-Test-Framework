@@ -102,7 +102,7 @@ Then("Table customers-10000 Created Successfully!", () => {
 })
 
 Then("The table customers-10000 already exists in the database! Message Should be recieved", () => {
-  cy.wait(2000);
+  
   cy.get('[data-row-key="1"] > :nth-child(2)')
     .should("be.visible")
     .should("contain", "Dataset Automation1 already exists for user Yash.");
